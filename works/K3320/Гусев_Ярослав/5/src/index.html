@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карта изображений</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #f0f0f5;
+            font-family: Arial, sans-serif;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Карта изображений</h1>
+
+<img src="/static/cool-skeleton.jpg" usemap="#image-map" alt="Карта изображений">
+
+<map name="image-map">
+    <area shape="rect" coords="219,621,893,1023" href="https://www.amazon.com/Wheelchairs/s?k=Wheelchairs" alt="Ссылка">
+    <area shape="circle" coords="559,226,74" onclick="changeColor(event)" alt="Изменение цвета">
+    <area shape="circle" coords="177,383,110" onclick="alert('*Выстрел*')" alt="Оповещение">
+    <area shape="poly" coords="379,114,723,120,664,46,544,12,476,36" onclick="showMessage()" alt="Сообщение">
+    <area shape="rect" coords="50,54,249,142" href="/transition/" alt="Переход">
+</map>
+
+<script>
+    function changeColor(event) {
+        event.preventDefault();
+        document.body.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+    }
+    function showMessage() {
+        alert("Крутая шляпа");
+    }
+</script>
+
+</body>
+</html>
