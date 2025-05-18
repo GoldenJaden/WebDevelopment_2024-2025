@@ -1,0 +1,18 @@
+{% extends 'mainapp/base.html' %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+<h1>Добро пожаловать на главную страницу</h1>
+<p>Это простой проект на Django с тремя страницами и формой обратной связи.</p>
+<h2>Последние сообщения</h2>
+<ul>
+    {% for msg in latest_messages %}
+        <li>
+            <strong>{{ msg.name }}</strong> ({{ msg.email }})<br>
+            {{ msg.message|truncatechars:100 }}<br>
+            <small>{{ msg.created_at }}</small>
+        </li>
+    {% empty %}
+        <li>Сообщений пока нет.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

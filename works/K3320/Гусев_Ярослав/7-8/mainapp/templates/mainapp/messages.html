@@ -1,0 +1,17 @@
+{% extends 'mainapp/base.html' %}
+{% block title %}Сообщения{% endblock %}
+{% block content %}
+<h1>Полученные сообщения</h1>
+{% if messages %}
+    <ul>
+    {% for msg in messages %}
+        <li><strong>{{ msg.name }}</strong> ({{ msg.email }})<br>
+            {{ msg.message|linebreaks }}<br>
+            <small>{{ msg.created_at }}</small>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Сообщений пока нет.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'mainapp/base.html' %}
+{% block title %}Обратная связь{% endblock %}
+{% block content %}
+<h1>Обратная связь</h1>
+
+{% if sent %}
+<p class="success">Спасибо за ваше сообщение!</p>
+{% else %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Отправить</button>
+</form>
+{% endif %}
+
+{% endblock %}
